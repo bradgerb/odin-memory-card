@@ -1,12 +1,12 @@
 import { Card } from "./card"
 
-const CardDisplay = ()=> {
+const CardDisplay = (url, alt, id)=> {
     return(
         <div className="cardContainer">
             <Card
-                url = "toDo"
-                alt = "Random Pokemon"
-                id = "toDo"
+                url = {url}
+                alt = {alt}
+                id = {id}
             />
         </div>
     )
