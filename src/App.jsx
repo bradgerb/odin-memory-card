@@ -23,6 +23,23 @@ function App() {
   //   }
   // }, [imageData]);
 
+      function fisherYatesShuffle (array) {
+        let currentIndex = array.length, randomIndex;
+
+        while (currentIndex !== 0) {
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex--;
+
+            [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+        }
+        return array
+    }
+
+    let myArray = [1, 2, 3, 4, 5, 6, 7];
+    console.log("Original array:", myArray);
+    fisherYatesShuffle(myArray);
+    console.log("Shuffled array:", myArray);
+
   return (
     <div className='container'>
 
