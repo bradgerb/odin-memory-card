@@ -5,10 +5,9 @@ import { imageFetch } from './components/imageData.jsx';
 import './App.css'
 
 function App() {
-  // const [currentScore, setCurrentScore] = useState(0);
-  // const [highScore, setHighScore] = useState(0);
+  const [currentScore, setCurrentScore] = useState(0);
+  const [highScore, setHighScore] = useState(0);
   const [imageData, setImageData] = useState([]);
-
 
   useEffect(() => {
     const getPokeData = async()=> {
@@ -16,21 +15,20 @@ function App() {
       setImageData(pokemon);
     }
     getPokeData();
-
   }, []);
 
-  useEffect(() => {
-    if (imageData.length > 0) {
-      console.log(imageData[0].name);
-    }
-  }, [imageData]);
+  // useEffect(() => {
+  //   if (imageData.length > 0) {
+  //     console.log(imageData[0].name);
+  //   }
+  // }, [imageData]);
 
   return (
     <div className='container'>
 
       <Header
-        // currentScore = { currentScore }
-        // highScore = { highScore }
+        currentScore = { currentScore }
+        highScore = { highScore }
       />
 
       <div className="cardContainer">
@@ -42,7 +40,7 @@ function App() {
               id = { image.id }
             />
           </div>
-        ))};
+        ))}
       </div>
     </div>
   )
