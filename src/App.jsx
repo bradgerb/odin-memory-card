@@ -27,8 +27,14 @@ function App() {
 
   }, []);
 
-  console.log(imageData);
-  const firstEle = imageData[0];
+  useEffect(() => {
+    if (imageData.length > 0) {
+      console.log(imageData[0].name);
+    }
+  }, [imageData]);
+
+  // console.log(imageData);
+  // const firstEle = imageData[0];
   // console.log(firstEle);
   // const firstName = firstEle.sprite;
   // console.log(firstName);
@@ -47,11 +53,15 @@ function App() {
         // highScore = { highScore }
       />
 
-      <CardDisplay
-        // url = { imageData[0].sprite }
-        // alt = { imageData[0].name }
-        // id = { imageData[0].id }
-      />
+    {imageData.map((image) = (
+      <div key={image.id}>
+        <CardDisplay
+          url = { image.sprite }
+          alt = { image.name }
+          // id = { imageData.id }
+        />
+      </div>
+    ))};
     </div>
   )
 }
