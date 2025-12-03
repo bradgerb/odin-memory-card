@@ -33,15 +33,17 @@ function App() {
         // highScore = { highScore }
       />
 
-    {imageData.map((image) => (
-      <div key={image.id}>
-        <CardDisplay
-          url = { image.sprite }
-          alt = { image.name }
-          id = { image.id }
-        />
+      <div className="cardContainer">
+        {imageData.map((image) => (
+          <div key={image.id}>
+            <CardDisplay
+              url = { image.sprite }
+              alt = { image.name }
+              id = { image.id }
+            />
+          </div>
+        ))};
       </div>
-    ))};
     </div>
   )
 }
