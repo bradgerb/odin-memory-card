@@ -1,6 +1,6 @@
 import { Card } from "./card"
 
-const CardDisplay = (url, alt, id)=> {
+const CardDisplay = ({url, alt, id})=> {
     return(
         <div className="cardContainer">
             <Card

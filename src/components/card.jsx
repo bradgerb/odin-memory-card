@@ -1,4 +1,5 @@
 const Card = (url, alt, id)=> {
+    // console.log(url, alt, id);
     return (
         <>
             <button className="card">

@@ -1,30 +1,57 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Header } from './components/header.jsx';
 import { CardDisplay } from './components/cardDisplay.jsx';
-import { ImageFetcher } from './components/imageData.jsx';
+import { imageFetch } from './components/imageData.jsx';
 import './App.css'
 
 function App() {
-  const [currentScore, setCurrentScore] = useState(0);
-  const [highScore, setHighScore] = useState(0);
+  // const [currentScore, setCurrentScore] = useState(0);
+  // const [highScore, setHighScore] = useState(0);
+  const [imageData, setImageData] = useState([]);
 
-  const { imageData } = ImageFetcher();
-  const imageID = imageData.id;
-  const imageName = imageData.name;
-  // const imageSprite = imageData.sprites.other["official-artwork"].front_default;
 
-  console.log(imageID, imageName);
+  useEffect(() => {
+    const getPokeData = async()=> {
+      const pokemon = await imageFetch();
+      // console.log(pokemon);
+      // console.log(pokemon[0]);
+      // console.log(pokemon[0].name);
+      setImageData(pokemon);
+        // console.log(imageData);
+        // const firstEle = imageData[0];
+        // console.log(firstEle);
+        // const firstName = firstEle.sprite;
+        // console.log(firstName);
+    }
+    getPokeData();
 
+  }, []);
+
+  console.log(imageData);
+  const firstEle = imageData[0];
+  // console.log(firstEle);
+  // const firstName = firstEle.sprite;
+  // console.log(firstName);
+  // console.log(imageData[0]);
+  // console.log(imageData[0]["id"]);
+  // console.log(imageData[0].sprite);
+
+  // const newTest = imageData[0].name;
+  // console.log(newTest);
 
   return (
     <div className='container'>
 
       <Header
-        currentScore = {currentScore}
-        highScore = {highScore}
+        // currentScore = { currentScore }
+        // highScore = { highScore }
       />
 
-      <CardDisplay/>
+      <CardDisplay
+        // url = { imageData[0].sprite }
+        // alt = { imageData[0].name }
+        // id = { imageData[0].id }
+      />
     </div>
   )
 }
