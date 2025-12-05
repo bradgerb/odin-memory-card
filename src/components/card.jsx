@@ -1,8 +1,14 @@
+import { useState } from "react";
+
 const Card = ({url, alt, id})=> {
+
+    const [alreadySelected, setAlreadySelected] = useState(false);
 
     const handleClick = (e) => {
         let button = e.target
+        setAlreadySelected(true);
         console.log(button.id);
+        console.log(alreadySelected);
     }
 
     return (

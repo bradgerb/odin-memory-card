@@ -1,9 +1,8 @@
 async function imageFetch() {
     const maxID = 151 //Gen 1
     const ids = new Set();
-    const shinyOdds = 5; //(5%)
+    const shinyOdds = 5;
     
-
     while(ids.size < 10) {
         ids.add(Math.ceil(Math.random() * maxID))
     }
