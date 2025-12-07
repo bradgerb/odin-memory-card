@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Card = ({url, alt, id, currentScore, setCurrentScore, highScore, setHighScore, isDisabled, setIsDisabled})=> {
+const Card = ({url, alt, id, currentScore, setCurrentScore, highScore, setHighScore, isDisabled, setIsDisabled, isShown, setIsShown})=> {
 
     const [alreadySelected, setAlreadySelected] = useState(false);
     
@@ -20,7 +20,8 @@ const Card = ({url, alt, id, currentScore, setCurrentScore, highScore, setHighSc
 
     function gameOver() {
         setIsDisabled(true);
-        
+        setIsShown(true);
+        console.log('gameOver', isShown);
     }
 
     function scoreUp() {

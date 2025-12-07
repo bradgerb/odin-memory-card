@@ -41,7 +41,7 @@ body {
 }
 
 .gameOver {
-  /* display: none; */
+  display: none;
   position: fixed;
   left: 50%;
   top: 50%;
@@ -70,5 +70,5 @@ body {
 }
 
 .gameOverButton:active {
-    transform: translateY(1px);
+    transform: translateY(2px);
 }

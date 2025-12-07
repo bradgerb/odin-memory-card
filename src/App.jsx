@@ -9,6 +9,7 @@ function App() {
   const [currentScore, setCurrentScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
   const [imageData, setImageData] = useState([]);
+  const [isShown, setIsShown] = useState(false);
 
   function fisherYatesShuffle (array) {
     let currentIndex = array.length, randomIndex;
@@ -78,14 +79,18 @@ function App() {
               setCurrentScore = { setCurrentScore }
               highScore = { highScore }
               setHighScore = { setHighScore }
+              isShown = { isShown }
+              setIsShown = { setIsShown }
             />
           </div>
         ))}
       </div>
 
-      <div className="gameOver">
+      <div className={`gameOver ${isShown ? 'gameOverShow' : ''}`}>
         <GameOverMenu
           currentScore = { currentScore }
+          setCurrentScore = { setCurrentScore }
+          setIsShown = { setIsShown }
         />
       </div>
 
