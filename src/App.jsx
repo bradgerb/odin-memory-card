@@ -13,6 +13,7 @@ function App() {
   const [showLoss, setShowLoss] = useState(false);
   const [showWin, setShowWin] = useState(false);
   const [newData, setNewData] = useState(false);
+  const [selectedIDs, setSelectedIDs] = useState([]);
 
   useEffect(() => {
     const getPokeData = async()=> {
@@ -21,6 +22,8 @@ function App() {
     }
     getPokeData();
   }, [newData]);
+
+
 
   return (
     <div className='container'>
@@ -47,6 +50,8 @@ function App() {
               setShowWin = { setShowWin }
               imageData = { imageData }
               setImageData = { setImageData }
+              selectedIDs = { selectedIDs }
+              setSelectedIDs = { setSelectedIDs }
             />
           </div>
         ))}

@@ -1,30 +1,31 @@
 import confetti from "canvas-confetti";
-import { useState } from "react";
 
-const Card = ({url, alt, id, currentScore, setCurrentScore, highScore, setHighScore, showLoss, setShowLoss, showWin, setShowWin, imageData, setImageData})=> {
-
-    const [alreadySelected, setAlreadySelected] = useState(false);
+const Card = ({url, alt, id, currentScore, setCurrentScore, highScore, setHighScore, showLoss, setShowLoss, showWin, setShowWin, imageData, setImageData, selectedIDs, setSelectedIDs})=> {
     
-    const handleClick = () => {
+    const handleClick = (e) => {
+        let button = e.target;
+
         if (checkGameEnded() === true) {
             return
-        } else if (alreadySelected === true) {
+        } else if (selectedIDs.includes(button.id)) {
             gameOver();
         } else if (currentScore === imageData.length - 1) {
             scoreUp();
             youWin();
         } else {
-            setAlreadySelected(true);
+            setSelectedIDs([...selectedIDs, button.id]);
             scoreUp();
             setImageData(fisherYatesShuffle(imageData));
         }
     }
 
     function gameOver() {
+        setSelectedIDs([]);
         setShowLoss(true);
     }
 
     function youWin() {
+        setSelectedIDs([]);
         confetti();
         setShowWin(true);
     }
