@@ -3,7 +3,6 @@ const GameOverMenu = ({currentScore, setCurrentScore, setIsShown}) => {
     const handleClick = ()=> {
         setCurrentScore(0);
         setIsShown(false);
-        console.log('retry');
     }
 
     return (

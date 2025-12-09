@@ -16,7 +16,6 @@ const Card = ({url, alt, id, currentScore, setCurrentScore, highScore, setHighSc
 
     function gameOver() {
         setIsShown(true);
-        console.log('gameOver', isShown);
     }
 
     function scoreUp() {
