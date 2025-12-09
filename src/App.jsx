@@ -2,14 +2,16 @@ import { useEffect, useState } from 'react'
 import { Header } from './components/header.jsx';
 import { CardDisplay } from './components/cardDisplay.jsx';
 import { imageFetch } from './components/imageData.jsx';
-import { GameOverMenu } from './components/gameOver.jsx';
+import { LossMenu } from './components/gameOver.jsx';
+import { WinMenu } from './components/youWin.jsx';
 import './App.css'
 
 function App() {
   const [currentScore, setCurrentScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
   const [imageData, setImageData] = useState([]);
-  const [isShown, setIsShown] = useState(false);
+  const [showLoss, setShowLoss] = useState(false);
+  const [showWin, setShowWin] = useState(false);
 
   useEffect(() => {
     const getPokeData = async()=> {
@@ -44,8 +46,10 @@ function App() {
               setCurrentScore = { setCurrentScore }
               highScore = { highScore }
               setHighScore = { setHighScore }
-              isShown = { isShown }
-              setIsShown = { setIsShown }
+              showLoss = { showLoss }
+              setShowLoss = { setShowLoss }
+              showWin = { showWin }
+              setShowWin = { setShowWin }
               imageData = { imageData }
               setImageData = { setImageData }
             />
@@ -53,11 +57,19 @@ function App() {
         ))}
       </div>
 
-      <div className={`gameOver ${isShown ? 'gameOverShow' : ''}`}>
-        <GameOverMenu
+      <div className={`gameOver loss ${showLoss ? 'gameOverShow' : ''}`}>
+        <LossMenu
           currentScore = { currentScore }
           setCurrentScore = { setCurrentScore }
-          setIsShown = { setIsShown }
+          setShowLoss = { setShowLoss }
+        />
+      </div>
+
+      <div className={`gameOver win ${showWin ? 'gameOverShow' : ''}`}>
+        <WinMenu
+          currentScore = { currentScore }
+          setCurrentScore = { setCurrentScore }
+          setShowWin = { setShowWin }
         />
       </div>
 

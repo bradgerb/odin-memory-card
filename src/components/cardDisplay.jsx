@@ -1,6 +1,6 @@
 import { Card } from "./card"
 
-const CardDisplay = ({url, alt, id, currentScore, setCurrentScore, highScore, setHighScore, isShown, setIsShown, imageData, setImageData})=> {
+const CardDisplay = ({url, alt, id, currentScore, setCurrentScore, highScore, setHighScore, showLoss, setShowLoss, showWin, setShowWin, imageData, setImageData})=> {
     return(
         <>
             <Card
@@ -11,8 +11,10 @@ const CardDisplay = ({url, alt, id, currentScore, setCurrentScore, highScore, se
                 setCurrentScore = { setCurrentScore }
                 highScore = { highScore }
                 setHighScore = { setHighScore }
-                isShown = { isShown }
-                setIsShown = { setIsShown }
+                showLoss = { showLoss }
+                setShowLoss = { setShowLoss }
+                showWin = { showWin }
+                setShowWin = { setShowWin }
                 imageData = { imageData }
                 setImageData = { setImageData }
             />

@@ -1,21 +1,38 @@
 import { useState } from "react";
 
-const Card = ({url, alt, id, currentScore, setCurrentScore, highScore, setHighScore, isShown, setIsShown, imageData, setImageData})=> {
+const Card = ({url, alt, id, currentScore, setCurrentScore, highScore, setHighScore, showLoss, setShowLoss, showWin, setShowWin, imageData, setImageData})=> {
 
     const [alreadySelected, setAlreadySelected] = useState(false);
     
     const handleClick = () => {
-        if (alreadySelected === false && isShown === false) {
+        if (checkGameEnded() === true) {
+            return
+        } else if (alreadySelected === true) {
+            gameOver();
+        } else if (currentScore === imageData.length - 1) {
+            scoreUp();
+            youWin();
+        } else {
             setAlreadySelected(true);
             scoreUp();
             setImageData(fisherYatesShuffle(imageData));
-        } else {
-            gameOver();
-        }    
+        }
     }
 
     function gameOver() {
-        setIsShown(true);
+        setShowLoss(true);
+    }
+
+    function youWin() {
+        setShowWin(true);
+    }
+
+    function checkGameEnded() {
+        let output = false;
+        if (showLoss === true || showWin === true) {
+            output = true;
+        }
+        return output
     }
 
     function scoreUp() {

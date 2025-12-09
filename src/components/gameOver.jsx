@@ -1,8 +1,8 @@
-const GameOverMenu = ({currentScore, setCurrentScore, setIsShown}) => {
+const LossMenu = ({currentScore, setCurrentScore, setShowLoss}) => {
 
     const handleClick = ()=> {
         setCurrentScore(0);
-        setIsShown(false);
+        setShowLoss(false);
     }
 
     return (
@@ -14,4 +14,4 @@ const GameOverMenu = ({currentScore, setCurrentScore, setIsShown}) => {
     )
 }
 
-export { GameOverMenu }
+export { LossMenu }

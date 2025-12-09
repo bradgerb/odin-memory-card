@@ -52,6 +52,14 @@ body {
   padding: 2rem 3rem;
 }
 
+.loss {
+  background-color: brown;
+}
+
+.win {
+  background-color: lightgreen;
+}
+
 .gameOverShow {
     display: flex;
     flex-direction: column;
