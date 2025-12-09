@@ -12,6 +12,7 @@ function App() {
   const [imageData, setImageData] = useState([]);
   const [showLoss, setShowLoss] = useState(false);
   const [showWin, setShowWin] = useState(false);
+  const [newData, setNewData] = useState(false);
 
   useEffect(() => {
     const getPokeData = async()=> {
@@ -19,7 +20,7 @@ function App() {
       setImageData(pokemon);
     }
     getPokeData();
-  }, []);
+  }, [newData]);
 
   // useEffect(() => {
   //   if (imageData.length > 0) {
@@ -62,6 +63,8 @@ function App() {
           currentScore = { currentScore }
           setCurrentScore = { setCurrentScore }
           setShowLoss = { setShowLoss }
+          newData = { newData }
+          setNewData = { setNewData }
         />
       </div>
 
@@ -70,6 +73,8 @@ function App() {
           currentScore = { currentScore }
           setCurrentScore = { setCurrentScore }
           setShowWin = { setShowWin }
+          newData = { newData }
+          setNewData = { setNewData }
         />
       </div>
 

@@ -1,8 +1,9 @@
-const WinMenu = ({currentScore, setCurrentScore, setShowWin}) => {
+const WinMenu = ({currentScore, setCurrentScore, setShowWin, newData, setNewData}) => {
 
     const handleClick = ()=> {
         setCurrentScore(0);
         setShowWin(false);
+        setNewData(!newData);
     }
 
     return (

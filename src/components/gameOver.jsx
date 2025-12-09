@@ -1,8 +1,9 @@
-const LossMenu = ({currentScore, setCurrentScore, setShowLoss}) => {
+const LossMenu = ({currentScore, setCurrentScore, setShowLoss, newData, setNewData}) => {
 
     const handleClick = ()=> {
         setCurrentScore(0);
         setShowLoss(false);
+        setNewData(!newData);
     }
 
     return (

@@ -48,7 +48,6 @@ body {
   transform: translateX(-50%) translateY(-50%);
   border: 2px solid black;
   border-radius: 20px;
-  background-color: brown;
   padding: 2rem 3rem;
 }
 
