@@ -1,8 +1,6 @@
-import { useState } from "react";
 import { Card } from "./card"
 
-const CardDisplay = ({url, alt, id, currentScore, setCurrentScore, highScore, setHighScore, isShown, setIsShown})=> {
-    const [isDisabled, setIsDisabled] = useState(false);
+const CardDisplay = ({url, alt, id, currentScore, setCurrentScore, highScore, setHighScore, isShown, setIsShown, imageData, setImageData})=> {
     return(
         <>
             <Card
@@ -13,10 +11,10 @@ const CardDisplay = ({url, alt, id, currentScore, setCurrentScore, highScore, se
                 setCurrentScore = { setCurrentScore }
                 highScore = { highScore }
                 setHighScore = { setHighScore }
-                isDisabled = { isDisabled }
-                setIsDisabled = { setIsDisabled }
                 isShown = { isShown }
                 setIsShown = { setIsShown }
+                imageData = { imageData }
+                setImageData = { setImageData }
             />
         </>
     )

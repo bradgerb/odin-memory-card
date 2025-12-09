@@ -11,34 +11,10 @@ function App() {
   const [imageData, setImageData] = useState([]);
   const [isShown, setIsShown] = useState(false);
 
-  function fisherYatesShuffle (array) {
-    let currentIndex = array.length, randomIndex;
-
-    while (currentIndex !== 0) {
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex--;
-
-        [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
-    }
-    return array
-  }
-
   useEffect(() => {
     const getPokeData = async()=> {
       const pokemon = await imageFetch();
       setImageData(pokemon);
-
-      const basicArray = [1, 2, 3, 4, 5];
-      const newArray = basicArray;
-      console.log('preshuffle', basicArray)
-      const shuffledBasicArray = fisherYatesShuffle(newArray);
-      console.log('newArray', newArray);
-      console.log('basicArray', basicArray);
-      console.log('shuffledBasicArray', shuffledBasicArray);
-
-      // const shuffledPokemon = fisherYatesShuffle(pokemon);
-      // console.log('array', pokemon);
-      // console.log('shuffledArray', shuffledPokemon);
     }
     getPokeData();
   }, []);
@@ -47,17 +23,6 @@ function App() {
   //   if (imageData.length > 0) {
   //     console.log(imageData);
   //   }
-  // }, [imageData]);
-
-  // useEffect(() => {
-  //   const logShuffle = (array)=> {
-  //     let myArray = array;
-  //     console.log("Original array:", myArray);
-  //     fisherYatesShuffle(myArray);
-  //     console.log("Shuffled array:", myArray);
-  //   }
-  //   logShuffle([1, 2, 3, 4, 5, 6, 7]);
-  //   logShuffle(imageData);
   // }, [imageData]);
 
   return (
@@ -81,6 +46,8 @@ function App() {
               setHighScore = { setHighScore }
               isShown = { isShown }
               setIsShown = { setIsShown }
+              imageData = { imageData }
+              setImageData = { setImageData }
             />
           </div>
         ))}

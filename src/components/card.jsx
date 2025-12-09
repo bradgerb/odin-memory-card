@@ -1,25 +1,20 @@
 import { useState } from "react";
 
-const Card = ({url, alt, id, currentScore, setCurrentScore, highScore, setHighScore, isDisabled, setIsDisabled, isShown, setIsShown})=> {
+const Card = ({url, alt, id, currentScore, setCurrentScore, highScore, setHighScore, isShown, setIsShown, imageData, setImageData})=> {
 
     const [alreadySelected, setAlreadySelected] = useState(false);
     
-    const handleClick = (e) => {
-        // let button = e.target
-        if (alreadySelected === false) {
+    const handleClick = () => {
+        if (alreadySelected === false && isShown === false) {
             setAlreadySelected(true);
             scoreUp();
+            setImageData(fisherYatesShuffle(imageData));
         } else {
             gameOver();
-        }
-            
-        // console.log(button.id);
-        // console.log(alreadySelected);
-        
+        }    
     }
 
     function gameOver() {
-        setIsDisabled(true);
         setIsShown(true);
         console.log('gameOver', isShown);
     }
@@ -31,9 +26,21 @@ const Card = ({url, alt, id, currentScore, setCurrentScore, highScore, setHighSc
         }
     }
 
+    function fisherYatesShuffle (array) {
+        let currentIndex = array.length, randomIndex;
+
+        while (currentIndex !== 0) {
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex--;
+
+            [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+        }
+        return array
+    }
+
     return (
         <>
-            <button className="card" onClick={handleClick} disabled={isDisabled}>
+            <button className="card" onClick={handleClick}>
                 <img src={url} alt={alt} id={id} />
             </button>
         </>
