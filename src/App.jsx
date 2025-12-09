@@ -23,8 +23,6 @@ function App() {
     getPokeData();
   }, [newData]);
 
-
-
   return (
     <div className='container'>
 
