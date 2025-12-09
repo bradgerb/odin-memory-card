@@ -22,12 +22,6 @@ function App() {
     getPokeData();
   }, [newData]);
 
-  // useEffect(() => {
-  //   if (imageData.length > 0) {
-  //     console.log(imageData);
-  //   }
-  // }, [imageData]);
-
   return (
     <div className='container'>
 
