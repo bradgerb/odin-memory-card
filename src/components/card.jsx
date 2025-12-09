@@ -1,3 +1,4 @@
+import confetti from "canvas-confetti";
 import { useState } from "react";
 
 const Card = ({url, alt, id, currentScore, setCurrentScore, highScore, setHighScore, showLoss, setShowLoss, showWin, setShowWin, imageData, setImageData})=> {
@@ -24,6 +25,7 @@ const Card = ({url, alt, id, currentScore, setCurrentScore, highScore, setHighSc
     }
 
     function youWin() {
+        confetti();
         setShowWin(true);
     }
 
