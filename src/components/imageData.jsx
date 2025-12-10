@@ -9,7 +9,7 @@ async function imageFetch() {
 
     const pokemon = Promise.all(
         [...ids].map(async (id) => {
-            const response = await fetch(`https:pokeapi.co/api/v2/pokemon/${id}`);
+            const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
             const data = await response.json();
             const random = Math.ceil(Math.random() * 100);
             let sprite;
